@@ -47,6 +47,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Row(
           children: [
@@ -132,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text("登録ページへ"),
               ),
               const SizedBox(height: 1),
-              //Text(infoText)
+              Text(infoText)
             ],
           ),
         ),
