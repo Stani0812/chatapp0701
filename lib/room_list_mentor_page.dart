@@ -19,7 +19,7 @@ class _RoomListMentorPage extends State<RoomListMentorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('お悩み一覧'),
+        title: Text('生徒のお悩み一覧'),
       ),
       body: Center(
         child: StreamBuilder<QuerySnapshot>(
@@ -46,7 +46,9 @@ class _RoomListMentorPage extends State<RoomListMentorPage> {
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                       child: ListTile(
-                        title: Text(documents[index]['name']),
+                        title: Text(documents[index]['name'] +
+                            "    by " +
+                            documents[index]['studentName']),
                         trailing: IconButton(
                           icon: Icon(Icons.input),
                           onPressed: () async {

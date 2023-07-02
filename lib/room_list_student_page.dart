@@ -19,7 +19,7 @@ class _RoomListStudentPage extends State<RoomListStudentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('一覧 ' + widget.userInfo.name),
+        title: Text('チャットルーム一覧'),
       ),
       body: Center(
         child: StreamBuilder<QuerySnapshot>(
