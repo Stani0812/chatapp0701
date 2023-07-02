@@ -50,11 +50,12 @@ class ChatRoomState extends State<ChatRoom> {
 
     final message = getData.docs
         .map((d) => types.TextMessage(
-            author:
-                types.User(id: d.data()['uid'], firstName: d.data()['name']),
-            createdAt: d.data()['createdAt'],
-            id: d.data()['id'],
-            text: d.data()['text']))
+              author:
+                  types.User(id: d.data()['uid'], firstName: d.data()['name']),
+              createdAt: d.data()['createdAt'],
+              id: d.data()['id'],
+              text: d.data()['text'],
+            ))
         .toList();
 
     setState(() {
@@ -65,12 +66,14 @@ class ChatRoomState extends State<ChatRoom> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text("チャットルーム"),
+          title: Text(name),
         ),
         body: Chat(
           user: _user,
           messages: _messages,
           onSendPressed: _handleSendPressed,
+          showUserAvatars: true,
+          showUserNames: true,
         ),
       );
 
@@ -85,7 +88,7 @@ class ChatRoomState extends State<ChatRoom> {
         .collection('contents')
         .add({
       'uid': message.author.id,
-      'name': message.author.firstName,
+      'name': userInfo.name,
       'createdAt': message.createdAt,
       'id': message.id,
       'text': message.text,

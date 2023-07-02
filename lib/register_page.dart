@@ -27,6 +27,18 @@ class _RegisterPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Row(
+            children: [
+              Image.asset(
+                  width: 80, height: 80, 'asset/benesse-logo-728x485.png'),
+              SizedBox(width: 30),
+              const Text('アカウント登録'),
+            ],
+          ),
+        ),
+      ),
       body: Center(
         child: Container(
           padding: EdgeInsets.all(32),
@@ -116,6 +128,12 @@ class _RegisterPage extends State<RegisterPage> {
                   }
                 },
                 child: Text("ユーザー登録"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               Text(infoText)
